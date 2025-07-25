@@ -6,6 +6,41 @@
   <link rel="icon" type="image/png" href="guppy_circle.png" />
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    /* Lightbox overlay styling */
+    .lightbox-overlay {
+      position: fixed;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+    }
+
+    .lightbox-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 4px solid white;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
 
@@ -30,41 +65,48 @@
     <p>Apart from research, I enjoy capturing the natural world around me.</p>
   </section>
 
-   <section class="gallery-grid">
-  <a href="#img1"><img src="images/frog.JPG" alt="Giant treefrog" /></a>
-  <a href="#img2"><img src="images/snake.jpg" alt="Machete snake" /></a>
-  <a href="#img3"><img src="images/blanchi.JPG" alt="Blanchisseuse" /></a>
-  <a href="#img4"><img src="images/frog2.jpg" alt="Giant treefrog" /></a>
-  <a href="#img5"><img src="images/bayroad.JPG" alt="Bayroad" /></a>
-  <a href="#img6"><img src="images/spider.jpg" alt="Salticidae" /></a>
-</section>
+  <section class="gallery-grid">
+    <img src="images/frog.JPG" alt="Giant treefrog" />
+    <img src="images/snake.jpg" alt="Machete snake" />
+    <img src="images/blanchi.JPG" alt="Blanchisseuse" />
+    <img src="images/frog2.jpg" alt="Giant treefrog" />
+    <img src="images/bayroad.JPG" alt="Bayroad" />
+    <img src="images/spider.jpg" alt="Salticidae" />
+  </section>
 
-<!-- Lightbox popups -->
-<div id="img1" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/frog.JPG" alt="Giant treefrog" />
-</div>
-<div id="img2" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/snake.jpg" alt="Machete snake" />
-</div>
-<div id="img3" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/blanchi.JPG" alt="Blanchisseuse" />
-</div>
-<div id="img4" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/frog2.jpg" alt="Giant treefrog" />
-</div>
-<div id="img5" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/bayroad.JPG" alt="Bayroad" />
-</div>
-<div id="img6" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/spider.jpg" alt="Salticidae" />
-</div>
-  
+  <!-- Lightbox container (only one needed) -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <img id="lightbox-img" src="" alt="Expanded image" />
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    // Make each image clickable
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    // Close with the close button
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    });
+
+    // Close by clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+      }
+    });
+  </script>
+
 </body>
 </html>
- 
