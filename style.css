@@ -163,37 +163,34 @@ nav ul li a:hover {
 }
 
 /* Lightbox styles */
-.lightbox {
-  display: none;
+.lightbox-overlay {
   position: fixed;
-  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
+  z-index: 1000;
 }
 
-.lightbox img {
+.lightbox-overlay img {
   max-width: 90%;
   max-height: 90%;
-  box-shadow: 0 0 15px rgba(255,255,255,0.5);
-}
-
-.lightbox:target {
-  display: flex;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .lightbox-close {
   position: absolute;
-  top: 30px;
-  right: 40px;
+  top: 20px;
+  right: 30px;
   font-size: 30px;
   color: white;
-  text-decoration: none;
+  cursor: pointer;
   background: rgba(0, 0, 0, 0.6);
+  border: none;
   padding: 5px 10px;
   border-radius: 5px;
-  cursor: pointer;
 }
