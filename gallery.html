@@ -30,7 +30,7 @@
     <p>Apart from research, I enjoy capturing the natural world around me.</p>
   </section>
 
-  <section class="gallery-grid">
+   <section class="gallery-grid">
     <img src="images/frog.JPG" alt="Giant treefrog" />
     <img src="images/snake.jpg" alt="Machete snake" />
     <img src="images/blanchi.JPG" alt="Blanchisseuse" />
@@ -39,7 +39,36 @@
     <img src="images/spider.jpg" alt="Salticidae" />
   </section>
 
+  <!-- Lightbox overlay -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <img id="lightbox-img" src="" alt="Expanded image" />
+  </div>
 
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("lightbox-close");
+
+    document.querySelectorAll(".gallery-grid img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = "flex";
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+      }
+    });
+  </script>
 
 </body>
 </html>
