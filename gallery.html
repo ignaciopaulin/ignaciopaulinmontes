@@ -74,7 +74,7 @@
     <img src="images/spider.jpg" alt="Salticidae" />
   </section>
 
-  <!-- Lightbox container (only one needed) -->
+  <!-- Lightbox container -->
   <div class="lightbox-overlay" id="lightbox">
     <button class="lightbox-close" id="lightbox-close">&times;</button>
     <img id="lightbox-img" src="" alt="Expanded image" />
@@ -85,7 +85,7 @@
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.getElementById('lightbox-close');
 
-    // Make each image clickable
+    // Image are clickable
     document.querySelectorAll('.gallery-grid img').forEach(img => {
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
@@ -93,13 +93,13 @@
       });
     });
 
-    // Close with the close button
+    // Close with X
     closeBtn.addEventListener('click', () => {
       lightbox.style.display = 'none';
       lightboxImg.src = '';
     });
 
-    // Close by clicking outside the image
+    // Close by clicking outside
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         lightbox.style.display = 'none';
