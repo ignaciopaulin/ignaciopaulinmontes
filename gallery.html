@@ -9,7 +9,7 @@
 </head>
 <body>
 
-   <nav>
+  <nav>
     <div class="name-top-left">
       <a href="/">Ignacio Paulin</a>
     </div>
@@ -31,39 +31,44 @@
   </section>
 
   <section class="gallery-grid">
-  <a href="#img1"><img src="images/frog.JPG" alt="Giant treefrog" /></a>
-  <a href="#img2"><img src="images/snake.jpg" alt="Machete snake" /></a>
-  <a href="#img3"><img src="images/blanchi.JPG" alt="Blanchisseuse" /></a>
-  <a href="#img4"><img src="images/frog2.jpg" alt="Giant treefrog" /></a>
-  <a href="#img5"><img src="images/bayroad.JPG" alt="Bayroad" /></a>
-  <a href="#img6"><img src="images/spider.jpg" alt="Salticidae" /></a>
-</section>
+    <img src="images/frog.JPG" alt="Giant treefrog" />
+    <img src="images/snake.jpg" alt="Machete snake" />
+    <img src="images/blanchi.JPG" alt="Blanchisseuse" />
+    <img src="images/frog2.jpg" alt="Giant treefrog" />
+    <img src="images/bayroad.JPG" alt="Bayroad" />
+    <img src="images/spider.jpg" alt="Salticidae" />
+  </section>
 
-<!-- Lightbox popups -->
-<div id="img1" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/frog.JPG" alt="Giant treefrog" />
-</div>
-<div id="img2" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/snake.jpg" alt="Machete snake" />
-</div>
-<div id="img3" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/blanchi.JPG" alt="Blanchisseuse" />
-</div>
-<div id="img4" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/frog2.jpg" alt="Giant treefrog" />
-</div>
-<div id="img5" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/bayroad.JPG" alt="Bayroad" />
-</div>
-<div id="img6" class="lightbox">
-  <a href="#" class="lightbox-close">&times;</a>
-  <img src="images/spider.jpg" alt="Salticidae" />
-</div>
+  <!-- Lightbox container -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <img id="lightbox-img" src="" alt="Expanded image" />
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+      }
+    });
+  </script>
 
 </body>
 </html>
