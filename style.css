@@ -129,3 +129,19 @@ nav ul li a:hover {
 .research-page .banner-text h2 {
   color: #444;
 }
+
+/* Tag below titles*/
+.status {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: normal;
+  margin-left: 0.5rem;
+}
+
+/* Skill tags under descriptions */
+.skill-tag {
+  margin-left: 1rem;
+  font-size: 0.85rem;
+  color: #777;
+  font-style: italic;
+}
