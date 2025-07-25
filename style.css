@@ -162,39 +162,3 @@ nav ul li a:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  text-align: center;
-  padding-top: 5vh;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90vh;
-  border-radius: 6px;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-}
-
-.lightbox:target {
-  display: block;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 2vh;
-  right: 3vw;
-  font-size: 2.5rem;
-  color: white;
-  text-decoration: none;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.3em 0.6em;
-  border-radius: 5px;
-}
-
